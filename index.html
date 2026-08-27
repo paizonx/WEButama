@@ -1,189 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Stream Portal | Secure Community Access</title>
-    
-    <!-- OG TAGS - Optimized for USA Market & FB Bot Safety -->
-    <meta property="og:site_name" content="Portal Media USA" />
-    <meta property="og:title" content="Watch Shared Community Content" /> 
-    <meta property="og:description" content="Access shared media via secure cloud delivery. High-speed streaming enabled for verified regions." />
-    <meta property="og:image" content="https://vidley.pw/tombolplay.jpg" />
-    <meta property="og:type" content="video.other" />
-    <meta property="og:locale" content="en_US" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <!-- Safer referrer policy -->
-    <meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Stream Portal Mov-Vidley | Home</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+<meta property="og:site_name" content="Portal Media USA">
+<meta property="og:title" content="Shared Community Content - Home">
+<meta property="og:description" content="Discover and watch trending community shared videos.">
+<meta property="og:type" content="website">
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
-        
-        body { 
-            background-color: #050505; 
-            color: #ffffff; 
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-        }
-        
-        .glass-card {
-            background: rgba(20, 20, 22, 0.95);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
-        }
+<!-- External Libraries -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
 
-        .ad-slot {
-            width: 320px;
-            height: 50px;
-            margin: 0 auto;
-            background: rgba(255,255,255,0.03);
-            border-radius: 6px;
-            border: 1px solid rgba(255,255,255,0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
 
-        .video-container {
-            width: 100%;
-            height: auto;
-            min-height: 200px;
-            max-height: 70vh; 
-            background-color: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        video {
-            width: 100%;
-            height: 100%;
-            max-height: 70vh;
-            object-fit: contain;
-            outline: none;
-        }
+body {
+    background: #050505;
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(220, 38, 38, 0.08) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(0, 0, 0, 0.5) 0px, transparent 50%);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    -webkit-user-drag: none;
+}
 
-        ::-webkit-scrollbar { width: 0px; background: transparent; }
-    </style>
+.glass-header {
+    background: rgba(10, 10, 12, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.video-card {
+    background: rgba(20, 20, 22, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.video-card:hover {
+    border-color: rgba(220, 38, 38, 0.3);
+    box-shadow: 0 10px 30px -10px rgba(220, 38, 38, 0.2);
+    transform: translateY(-4px);
+}
+
+.video-thumbnail {
+    background: #000;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #050505;
+}
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+</style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-3 sm:p-6 md:p-8">
 
-    <div class="w-full max-w-2xl glass-card rounded-2xl overflow-hidden relative flex flex-col transition-all duration-300">
-        
-        <div id="videoArea" class="video-container relative">
-            <video id="mainPlayer" controls playsinline preload="metadata">
-                Your browser does not support the video tag.
-            </video>
+<body class="flex flex-col items-center w-full">
 
-            <div id="errorMsg" class="hidden absolute flex flex-col items-center justify-center w-full h-full bg-[#0a0a0a]">
-                <i data-lucide="video-off" class="w-10 h-10 text-gray-600"></i>
-                <p class="mt-2 text-xs text-gray-500 font-medium">Video currently unavailable</p>
-            </div>
+<!-- Navigation / Header -->
+<nav class="glass-header sticky top-0 w-full z-50 px-4 py-4 md:px-8 flex justify-between items-center">
+    <div class="flex items-center gap-3">
+        <div class="p-2 bg-red-600/10 rounded-lg">
+            <i data-lucide="play" class="w-6 h-6 text-red-500 fill-red-500"></i>
         </div>
+        <h1 class="font-black text-xl tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
+            MOV<span class="text-red-500">VIDLEY</span>
+        </h1>
+    </div>
+    
+    <a href="https://www.facebook.com/groups/1818279898471064" target="_blank" class="hidden md:flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-full border border-white/10 transition-colors text-sm font-semibold">
+        <i data-lucide="users" class="w-4 h-4"></i>
+        Join Community
+    </a>
+</nav>
 
-        <div id="actionBox" class="p-6 sm:p-8 bg-gradient-to-b from-[#0a0a0c] to-[#050505] flex flex-col items-center">
-            
-            <!-- Updated to Smartlink -->
-            <a href="https://brillianceradiant.com/b2v93s05cp?key=855ceb731cac7b6616bc0debcd7804de" target="_blank" rel="noopener noreferrer" 
-               class="group relative flex items-center gap-3 mb-8 px-8 py-3.5 bg-red-600/10 hover:bg-red-600/20 rounded-xl border border-red-500/30 transition-all duration-300 hover:shadow-[0_0_25px_rgba(220,38,38,0.2)] hover:-translate-y-0.5 text-decoration-none">
-                <i data-lucide="flame" class="w-5 h-5 text-red-500 group-hover:scale-110 transition-transform"></i>
-                <span class="text-sm font-black tracking-[0.2em] text-red-500 uppercase">Trending X Video</span>
-            </a>
+<!-- Main Content Area -->
+<main class="w-full max-w-7xl px-4 py-8 md:px-8 flex flex-col gap-8">
 
-            <!-- Ad Slot Placeholder -->
-            <div class="ad-slot" id="ad-slot">
-                <span class="text-[10px] text-gray-700 uppercase tracking-widest font-bold">Sponsored Content</span>
-            </div>
-        </div>
-        
+    <!-- Section Title -->
+    <div class="flex items-center gap-3">
+        <i data-lucide="trending-up" class="w-6 h-6 text-red-500"></i>
+        <h2 class="text-2xl font-bold">Trending Now</h2>
     </div>
 
-    <script>
-        // Initialize Icons
-        lucide.createIcons();
+    <!-- Video Grid Container -->
+    <div id="videoGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-5">
+        <!-- Video cards will be injected here by JavaScript -->
+    </div>
 
-        // Bot Detection for Crawlers
-        const isBot = /facebookexternalhit|Facebot|Twitterbot|Pinterest|Googlebot|Bingbot/i.test(navigator.userAgent);
+</main>
 
-        // Primary Video Logic
-        function initVideo() {
-            let videoId = window.location.pathname.split('/').pop().trim();
-            if (videoId === "index.html" || videoId === "" || videoId === "bridge.html") videoId = "";
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // Inisialisasi Icon
+    lucide.createIcons();
 
-            const mainPlayer = document.getElementById("mainPlayer");
-            const errorMsg = document.getElementById("errorMsg");
+    // ==========================================
+    // DATABASE VIDEO (GANTI DENGAN ID VIDEY ANDA)
+    // ==========================================
+    // Anda hanya perlu memasukkan ID videy di sini.
+    // Judul bisa dikosongkan atau diisi bebas.
+    const videos = [
+        { id: "QiRcldmT1", title: "my daily activities" },
+        { id: "PAoHZDoX1", title: "She smiled so happily when the surprise arrived" },
+        { id: "aVetY4Xx1", title: "Just cheering her up while she’s feeling sick" },
+        { id: "8e3sc9KI1", title: "So thirsty, she had to open the fridge" },
+        { id: "UinTtuXY1", title: "just enjoying the little things" },
+        { id: "QLWI5PKG1", title: "When you’re driving but your focus is somewhere else" }
+    ];
 
-            if(/^[a-zA-Z0-9_.-]{3,80}$/.test(videoId) && videoId !== ""){
-                let filename = videoId.includes('.') ? videoId : videoId + ".mp4";
-                let videoUrl = "https://cdn2.videy.co/" + encodeURIComponent(filename);
+    const grid = document.getElementById('videoGrid');
+
+    // Render setiap video ke dalam grid
+    videos.forEach(video => {
+        // Karena ext videy bisa .mp4, kita asumsikan default .mp4 jika tidak ada titik
+        const filename = video.id.includes('.') ? video.id : video.id + '.mp4';
+        const videoUrl = 'https://cdn2.videy.co/' + encodeURIComponent(filename);
+        
+        // Buat elemen card (Arahkan href ke URL player Anda, misalnya /{id})
+        const card = document.createElement('a');
+        card.href = video.id; // Ini akan mengarah ke webanda.com/contoh_id_1
+        card.className = "video-card group block rounded-xl overflow-hidden cursor-pointer relative";
+        
+        // HTML Dalam Card
+        card.innerHTML = `
+            <!-- Wadah Video Thumbnail -->
+            <div class="relative aspect-[3/4] video-thumbnail overflow-hidden bg-zinc-900">
                 
-                mainPlayer.src = videoUrl;
+                <!-- Tag Video dimute dan ditambahkan #t=0.001 untuk mengambil frame pertama sebagai thumbnail -->
+                <video 
+                    src="${videoUrl}#t=0.001" 
+                    class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                    preload="metadata"
+                    muted
+                    loop
+                    playsinline>
+                </video>
                 
-                mainPlayer.addEventListener("error", () => {
-                    mainPlayer.classList.add("hidden");
-                    errorMsg.classList.remove("hidden");
+                <!-- Ikon Play di Tengah -->
+                <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-transparent transition-all">
+                    <div class="w-12 h-12 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center border border-white/20 group-hover:scale-110 group-hover:bg-red-600/80 group-hover:border-red-500 transition-all duration-300">
+                        <i data-lucide="play" class="w-6 h-6 text-white fill-white ml-1"></i>
+                    </div>
+                </div>
+
+                <!-- Durasi/Label (Opsional, desain mockup) -->
+                <div class="absolute bottom-2 right-2 bg-black/80 backdrop-blur px-2 py-1 rounded text-[10px] font-bold tracking-wider text-white">
+                    HD
+                </div>
+            </div>
+            
+            <!-- Judul Video -->
+            <div class="p-3">
+                <h3 class="text-sm font-semibold line-clamp-2 text-gray-200 group-hover:text-white transition-colors">
+                    ${video.title}
+                </h3>
+            </div>
+        `;
+
+        // Logika Hover: Play video otomatis saat kursor di atas card (seperti YouTube/TikTok)
+        const vidElement = card.querySelector('video');
+        
+        card.addEventListener('mouseenter', () => {
+            // Coba mainkan video, abaikan error jika video belum siap
+            let playPromise = vidElement.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    // Auto-play dicegah oleh browser atau video tidak valid (karena dummy ID)
+                    console.log("Hover play prevented or dummy ID.");
                 });
-            } else {
-                mainPlayer.classList.add("hidden");
-                errorMsg.classList.remove("hidden");
             }
-        }
+        });
 
-        // Load Ads & Analytics (Human Only)
-        function loadExternalScripts() {
-            if (isBot) return;
+        card.addEventListener('mouseleave', () => {
+            vidElement.pause();
+            // Reset ke awal setiap kali mouse keluar agar rapi
+            vidElement.currentTime = 0; 
+        });
 
-            // 1. Load NEW Adsterra Popunder
-            const popunder = document.createElement("script");
-            popunder.async = true;
-            popunder.src = "https://brillianceradiant.com/54/de/7a/54de7a7978c752aefef3abbfea8eff42.js";
-            document.head.appendChild(popunder);
+        grid.appendChild(card);
+    });
 
-            // 2. Load NEW Adsterra Banner (Delayed)
-            setTimeout(() => {
-                const adContainer = document.getElementById("ad-slot");
-                adContainer.innerHTML = ""; // Clear placeholder
-                
-                // Set atOptions for the banner
-                window.atOptions = {
-                    'key' : '324c065997c6bf07df0a6db6455c0b03',
-                    'format' : 'iframe',
-                    'height' : 50,
-                    'width' : 320,
-                    'params' : {}
-                };
+    // Refresh icon untuk elemen yang baru ditambahkan
+    lucide.createIcons();
+});
+</script>
 
-                const adScript = document.createElement("script");
-                adScript.src = "https://brillianceradiant.com/324c065997c6bf07df0a6db6455c0b03/invoke.js";
-                adScript.async = true;
-                adContainer.appendChild(adScript);
-            }, 1000);
-
-            // 3. Load Analytics (Delayed)
-            setTimeout(() => {
-                window._Hasync = window._Hasync || [];
-                _Hasync.push(['Histats.start', '1,4879497,4,0,0,0,00010000']);
-                _Hasync.push(['Histats.fasi', '1']);
-                _Hasync.push(['Histats.track_hits', '']);
-                
-                const hs = document.createElement('script'); 
-                hs.type = 'text/javascript'; 
-                hs.async = true;
-                hs.src = '//s10.histats.com/js15_as.js';
-                document.body.appendChild(hs);
-            }, 4000);
-        }
-
-        // Run Initialization
-        window.onload = () => {
-            initVideo();
-            // Start loading ads after 2.5 seconds to bypass simple crawlers
-            setTimeout(loadExternalScripts, 2500);
-        };
-    </script>
 </body>
 </html>
