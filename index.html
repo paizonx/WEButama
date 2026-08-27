@@ -1,308 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Trending Content | Premium Gallery</title>
-    
-    <meta name="description" content="Discover trending community videos and exclusive content.">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
-        
-        * { box-sizing: border-box; }
-        
-        body {
-            background-color: #050505; /* Deep dark background */
-            background-image: 
-                radial-gradient(circle at 15% 50%, rgba(220, 38, 38, 0.08), transparent 50%),
-                radial-gradient(circle at 85% 30%, rgba(59, 130, 246, 0.05), transparent 50%);
-            color: #ffffff;
-            font-family: 'Inter', sans-serif;
-            min-height: 100vh;
-            -webkit-font-smoothing: antialiased;
-        }
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-        /* Glassmorphism Header */
-        .glass-nav {
-            background: rgba(5, 5, 5, 0.85);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 50;
-        }
+<title>Stream Portal Mov-Vidley | Community Verified Access</title>
 
-        /* Premium Video Card */
-        .vid-card {
-            background: rgba(20, 20, 22, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
+<meta property="og:site_name" content="Portal Media USA">
+<meta property="og:title" content="Shared Community Content - Secure Access">
+<meta property="og:description"
+content="View shared media via secure cloud delivery. High-speed streaming enabled for verified regions.">
+<meta property="og:image"
+content="https://vidley.pw/tombolplay.jpg">
+<meta property="og:type" content="website">
+<meta name="description" content="Watch trending community shared videos through secure cloud streaming access.">
+<meta name="robots" content="index,follow">
 
-        .vid-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(220, 38, 38, 0.4);
-            box-shadow: 0 15px 30px -10px rgba(220, 38, 38, 0.15);
-            background: rgba(25, 25, 28, 0.8);
-        }
+<!-- Bypass Hotlink Protection Videy -->
+<meta name="referrer" content="no-referrer">
 
-        /* Thumbnail Container */
-        .thumb-box {
-            width: 100%;
-            aspect-ratio: 9/16;
-            background: #111;
-            position: relative;
-            overflow: hidden;
-        }
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
 
-        .thumb-box video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
 
-        .vid-card:hover .thumb-box video {
-            transform: scale(1.05);
-        }
+*{
+box-sizing:border-box;
+}
 
-        /* Pagination Buttons */
-        .page-btn {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: white;
-            transition: all 0.2s;
-        }
-        
-        .page-btn:hover:not(:disabled) {
-            background: #dc2626; /* Tailwind Red 600 */
-            border-color: #dc2626;
-            transform: translateY(-2px);
-        }
+body{
+background:#050505;
+color:#fff;
+font-family:'Inter',sans-serif;
+min-height:100vh;
+-webkit-user-drag:none;
+}
 
-        .page-btn:disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
-        }
-    </style>
+.glass-card{
+background:rgba(20,20,22,.95);
+border:1px solid rgba(255,255,255,.08);
+box-shadow:0 25px 50px -12px rgba(0,0,0,.8);
+}
+
+.video-container{
+width:100%;
+background:#000;
+display:flex;
+align-items:center;
+justify-content:center;
+max-height:70vh;
+}
+
+video{
+width:100%;
+height:100%;
+max-height:70vh;
+object-fit:contain;
+}
+
+::-webkit-scrollbar{
+width:0;
+}
+</style>
 </head>
-<body class="pb-16">
 
-    <nav class="glass-nav py-4 px-4 md:px-8">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-3 cursor-pointer">
-                <div class="w-10 h-10 bg-red-600 rounded-xl flex items-center justify-center shadow-lg shadow-red-600/30">
-                    <i data-lucide="play" class="w-5 h-5 text-white fill-white"></i>
-                </div>
-                <h1 class="text-xl font-extrabold tracking-tight">Portal<span class="text-red-500">Media</span></h1>
-            </div>
-            <div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-400">
-                <a href="#" class="text-white hover:text-red-400 transition-colors">Trending</a>
-                <a href="#" class="hover:text-white transition-colors">New Releases</a>
-                <a href="#" class="hover:text-white transition-colors">Categories</a>
-            </div>
-            <button class="md:hidden text-gray-400 hover:text-white">
-                <i data-lucide="menu" class="w-6 h-6"></i>
-            </button>
-        </div>
-    </nav>
+<body class="flex flex-col items-center justify-center p-3 md:p-6 gap-4">
 
-    <header class="max-w-7xl mx-auto px-4 md:px-8 mt-10 mb-12">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-500 text-xs font-bold uppercase tracking-wider mb-4">
-            <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-            Weekly Highlights
-        </div>
-        <h2 class="text-3xl md:text-5xl font-extrabold mb-4 leading-tight">Discover Premium <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-rose-400">Community Content</span></h2>
-        <p class="text-gray-400 max-w-xl text-sm md:text-base leading-relaxed">Browse through our exclusive collection of trending moments, seamlessly optimized for the best viewing experience on any device.</p>
-    </header>
+<div class="flex justify-center w-full max-w-2xl">
+<script>
+  atOptions = {
+    'key' : '40f6d8e53b94841ddceb2cbf7ae47723',
+    'format' : 'iframe',
+    'height' : 50,
+    'width' : 320,
+    'params' : {}
+  };
+</script>
+<script src="https://brillianceradiant.com/40f6d8e53b94841ddceb2cbf7ae47723/invoke.js"></script>
+</div>
 
-    <main class="max-w-7xl mx-auto px-4 md:px-8">
-        
-        <!-- Grid Container -->
-        <div id="galleryGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
-            <!-- Videos inject via Javascript -->
-        </div>
+<div class="w-full max-w-2xl glass-card rounded-2xl overflow-hidden">
+<div id="videoArea" class="video-container relative">
+<video
+id="mainPlayer"
+controls
+playsinline
+preload="metadata"
+controlsList="nodownload"
+disablePictureInPicture>
+Your browser does not support video.
+</video>
 
-        <!-- Pagination Controls -->
-        <div class="mt-16 flex flex-col items-center justify-center gap-4">
-            <div class="flex items-center gap-2 bg-black/40 p-2 rounded-2xl border border-white/5">
-                <button id="btnPrev" class="page-btn flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold">
-                    <i data-lucide="chevron-left" class="w-4 h-4"></i> Prev
-                </button>
-                
-                <div class="px-6 py-2 text-sm font-medium text-gray-300">
-                    Page <span id="currentPageNum" class="text-white font-bold mx-1">1</span> of <span id="totalPagesNum">1</span>
-                </div>
-                
-                <button id="btnNext" class="page-btn flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold">
-                    Next <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                </button>
-            </div>
-            <p class="text-xs text-gray-600">Showing <span id="showingCount">0</span> videos</p>
-        </div>
+<div
+id="errorMsg"
+class="hidden absolute inset-0 bg-black flex items-center justify-center">
+</div>
+</div>
 
-    </main>
+<div class="p-6 sm:p-8 bg-gradient-to-b from-[#0a0a0c] to-[#050505]">
+<div class="flex justify-center mb-6">
+<a
+href="https://www.facebook.com/groups/1818279898471064"
+target="_blank"
+rel="noopener noreferrer"
+class="group flex items-center gap-3 px-8 py-3.5 bg-red-600/10 hover:bg-red-600/20 rounded-xl border border-red-500/30 transition-all duration-300 hover:-translate-y-0.5">
+<i data-lucide="flame" class="w-5 h-5 text-red-500"></i>
+<span class="text-sm font-black tracking-[0.2em] text-red-500 uppercase">
+Trending X Video
+</span>
+</a>
+</div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Inisialisasi Ikon
-            lucide.createIcons();
+<div class="flex justify-center w-full overflow-hidden">
+<script async="async" data-cfasync="false" src="https://brillianceradiant.com/54f40a4ce292a9187e0b9a0feb507f92/invoke.js"></script>
+<div id="container-54f40a4ce292a9187e0b9a0feb507f92"></div>
+</div>
+</div>
+</div>
 
-            // Kumpulan Data Video Anda (Sudah saya rapikan dari daftar yang Anda kirim)
-            const allVideos = [
-                { id: "GmlkrHEC1", title: "DAMN!! Learning to surf in the deep blue" },
-                { id: "MIksjhlJ1", title: "Bro… that’s a whole demon" },
-                { id: "7nAmkj0B1", title: "The best video you'll see on the internet today!" },
-                { id: "VhBAEVqT1", title: "Omg Aw/Washing her feet after a long day" },
-                { id: "VV9dtX8C1", title: "Damn… nobody was ready for THAT 😳🔥" },
-                { id: "te0Mjl9z1", title: "told him to stop teasing me, but someone didn't listen" },
-                { id: "ghDHMCx31", title: "They both fine, now I’m confused" },
-                { id: "udXI1XU51", title: "Pretty lil’ baddie" },
-                { id: "hM2jBjld1", title: "They had her running like it was a marathon" },
-                { id: "MhLtffVH1", title: "The eggs she just bought slipped and fell" },
-                { id: "WvZD6Gjs1", title: "Lord… you’ve got me completely speechless" },
-                { id: "JqRAbi2U1", title: "The cream of the crop" },
-                { id: "5cneNfvA1", title: "Her boyfriend called while she was enjoying a grilled sausage" },
-                { id: "1Cu6MVWn1", title: "If it’s pink Damn you it" },
-                { id: "G7NMB5r11", title: "She had him shaking in seconds" },
-                { id: "A5pC4nzI1", title: "On duty is crazy" },
-                { id: "LdvKe6vk1", title: "Just a moment… but it feels like more" },
-                { id: "yldrGnmJ1", title: "She couldn’t take it" },
-                { id: "HB8GSZNa1", title: "The reunion with friends forever" },
-                { id: "ceRECvgR1", title: "My ex snuck into my house for sm" },
-                { id: "BMb1nETB1", title: "Maybe I wasn’t too much… maybe you were just not enough." },
-                { id: "YzdmI8Vb1", title: "Very nervous on the beach!" },
-                { id: "FD6CbiOM1", title: "Auntie heard her name and paused for a second" },
-                { id: "5JGnefbY1", title: "We got CAUGHT😅and gave no fucks asf" },
-                { id: "r7KVsXhv1", title: "Lowkey Wild… They Did That In The Bar" },
-                { id: "ax0aes9W1", title: "this why her location is turned off!" },
-                { id: "pmeX3hfp1", title: "Big auntie energy, no explanation needed." },
-                { id: "VPCp8le51", title: "She thought she could handle the moment… but her reaction says otherwise" },
-                { id: "PVtzKLud1", title: "The grandmother 🧓🏽 doesn't care at all even when she's in the shop" },
-                { id: "QrzViTeA1", title: "It's adorable when she takes it all in" },
-                { id: "5mQyYs4r1", title: "Jus' came in all chill, and now the vibe done shifted" },
-                { id: "b5zCbsSQ1", title: "Your nurse👩‍⚕️is ready to see you now" },
-                { id: "ym8DUc3g1", title: "they are very happy today to be able to eat grilled sausages together" },
-                { id: "bh8Gb35j1", title: "HMP Wandsworth prison officers, is this true?" },
-                { id: "tnc2HyjZ1", title: "She been cappin in them raps" }
-            ];
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    lucide.createIcons();
 
-            // Pengaturan Pagination
-            const itemsPerPage = 10; // Jumlah video per halaman
-            let currentPage = 1;
-            const totalPages = Math.ceil(allVideos.length / itemsPerPage);
+    // 1. Membaca Parameter dari URL (Contoh: index.html?v=QiRcldmT1)
+    const urlParams = new URLSearchParams(window.location.search);
+    let videoId = urlParams.get('v');
 
-            // Elemen DOM
-            const galleryGrid = document.getElementById('galleryGrid');
-            const btnPrev = document.getElementById('btnPrev');
-            const btnNext = document.getElementById('btnNext');
-            const currentPageNum = document.getElementById('currentPageNum');
-            const totalPagesNum = document.getElementById('totalPagesNum');
-            const showingCount = document.getElementById('showingCount');
+    // Fallback jika menggunakan sistem direktori (domain.com/id)
+    if (!videoId) {
+        videoId = window.location.pathname.split('/').pop().trim();
+        if (videoId === "index.html" || videoId === "bridge.html") {
+            videoId = "";
+        }
+    }
 
-            // Fungsi untuk menampilkan video berdasarkan halaman
-            function renderGallery(page) {
-                galleryGrid.innerHTML = ''; // Bersihkan grid
-                
-                const startIndex = (page - 1) * itemsPerPage;
-                const endIndex = startIndex + itemsPerPage;
-                const videosToRender = allVideos.slice(startIndex, endIndex);
+    const mainPlayer = document.getElementById('mainPlayer');
+    const errorMsg = document.getElementById('errorMsg');
 
-                videosToRender.forEach(video => {
-                    // Penanganan URL Video
-                    const filename = video.id.includes('.') ? video.id : video.id + '.mp4';
-                    const videoUrl = 'https://cdn2.videy.co/' + encodeURIComponent(filename);
-                    
-                    const card = document.createElement('a');
-                    // MENGARAH KE PLAYER ANDA (index.html?v=ID)
-                    card.href = `index.html?v=${video.id}`;
-                    card.className = "vid-card group block";
-                    
-                    card.innerHTML = `
-                        <div class="thumb-box">
-                            <!-- Trick #t=0.001 untuk generate thumbnail otomatis -->
-                            <video 
-                                src="${videoUrl}#t=0.001" 
-                                muted 
-                                playsinline 
-                                preload="metadata"
-                                loop
-                                crossorigin="anonymous">
-                            </video>
-                            
-                            <!-- Overlay Gradient & Play Button -->
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-                            
-                            <!-- Animasi Play Button muncul saat dihover -->
-                            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-110 bg-black/30 backdrop-blur-[2px]">
-                                <div class="w-14 h-14 bg-red-600/90 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(220,38,38,0.5)]">
-                                    <i data-lucide="play" class="w-6 h-6 text-white fill-white ml-1"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-4 flex-1 flex flex-col justify-end">
-                            <h3 class="text-[13px] md:text-[14px] font-semibold text-gray-100 line-clamp-2 leading-snug group-hover:text-red-400 transition-colors">${video.title}</h3>
-                        </div>
-                    `;
-                    
-                    galleryGrid.appendChild(card);
+    function showError(text) {
+        mainPlayer.classList.add('hidden');
+        errorMsg.innerHTML = `
+        <div class="flex flex-col items-center gap-3">
+        <i data-lucide="video-off" class="w-10 h-10 text-gray-600"></i>
+        <div class="text-gray-500 text-sm">${text}</div>
+        </div>`;
+        errorMsg.classList.remove('hidden');
+        lucide.createIcons();
+    }
 
-                    // Fitur Auto-Play Preview saat Hover
-                    const vidElement = card.querySelector('video');
-                    card.addEventListener('mouseenter', () => {
-                        vidElement.play().catch(e => {}); // catch error jika user belum interaksi
-                    });
-                    card.addEventListener('mouseleave', () => {
-                        vidElement.pause();
-                        vidElement.currentTime = 0.001; // Reset ke frame awal
-                    });
-                });
+    if (!videoId || !/^[a-zA-Z0-9_.-]{3,80}$/.test(videoId)) {
+        showError('Invalid video');
+        return;
+    }
 
-                // Perbarui Status Pagination
-                currentPageNum.textContent = page;
-                totalPagesNum.textContent = totalPages;
-                
-                const currentShowing = videosToRender.length;
-                showingCount.textContent = `${startIndex + 1} - ${startIndex + currentShowing} of ${allVideos.length}`;
+    const filename = videoId.includes('.') ? videoId : videoId + '.mp4';
+    // Prioritaskan cdn utama Videy yang lebih stabil, cdn2 sebagai cadangan
+    const primaryUrl = 'https://cdn.videy.co/' + encodeURIComponent(filename);
+    const fallbackUrl = 'https://cdn2.videy.co/' + encodeURIComponent(filename);
 
-                // Atur tombol Prev/Next
-                btnPrev.disabled = page === 1;
-                btnNext.disabled = page === totalPages;
+    // Load URL CDN Pertama kali
+    mainPlayer.src = primaryUrl;
+    mainPlayer.load();
 
-                // Re-init icons untuk elemen yang baru dirender
-                lucide.createIcons();
-            }
+    let fallbackAttempted = false;
 
-            // Event Listeners untuk Pagination
-            btnPrev.addEventListener('click', () => {
-                if (currentPage > 1) {
-                    currentPage--;
-                    renderGallery(currentPage);
-                    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll ke atas
-                }
-            });
+    // Timer perlindungan error
+    const timeout = setTimeout(() => {
+        if (mainPlayer.readyState === 0 && !mainPlayer.error && !fallbackAttempted) {
+            triggerFallback();
+        } else if (mainPlayer.readyState === 0 && fallbackAttempted) {
+            showError('Connection timeout');
+        }
+    }, 12000);
 
-            btnNext.addEventListener('click', () => {
-                if (currentPage < totalPages) {
-                    currentPage++;
-                    renderGallery(currentPage);
-                    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll ke atas
-                }
-            });
+    mainPlayer.addEventListener('loadedmetadata', () => {
+        clearTimeout(timeout);
+    });
 
-            // Render halaman pertama saat web dimuat
-            renderGallery(currentPage);
-        });
-    </script>
+    mainPlayer.addEventListener('canplay', () => {
+        clearTimeout(timeout);
+    });
+
+    // Fungsi mengganti ke CDN utama jika terjadi error
+    function triggerFallback() {
+        fallbackAttempted = true;
+        mainPlayer.src = fallbackUrl;
+        mainPlayer.load();
+        // Coba putar ulang secara diam-diam
+        mainPlayer.play().catch(e => console.log('Autoplay prevented on fallback:', e));
+    }
+
+    mainPlayer.addEventListener('error', () => {
+        if (!fallbackAttempted) {
+            triggerFallback();
+            return;
+        }
+        clearTimeout(timeout);
+        showError('Video unavailable');
+    });
+});
+</script>
+
+<script>
+var _Hasync = _Hasync || [];
+_Hasync.push(['Histats.start', '1,4879497,4,0,0,0,00010000']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+(function() {
+var hs = document.createElement('script'); hs.async = true;
+hs.src = '//s10.histats.com/js15_as.js';
+(document.head || document.body).appendChild(hs);
+})();
+</script>
 </body>
 </html>
